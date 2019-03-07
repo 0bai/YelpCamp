@@ -1,0 +1,38 @@
+<% include ../partials/header %>
+
+<div class="row  justify-content-center mt-4">
+    <div class="col-md-12 text-center">
+        <h1>Edit <%= campground.name %></h1>
+    </div>
+    <div class="col-lg-5 col-md-7 col-xs-12">
+        <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="post">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Camp Name" name="campground[name]" value="<%= campground.name %>">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number" value="<%= campground.price %>" name="campground[price]" min="0.01" step="0.01">
+            </div>
+            <div class="form-group">
+                <input class="form-control"type="text" placeholder="Image Url" name="campground[image]" value="<%= campground.image %>">
+            </div>
+            <div class="form-group">
+                <input class="form-control"type="text" placeholder="Description" name="campground[description]" value="<%= campground.description %>">
+            </div>
+            <div class="form-group">
+                <input class="form-control"type="text" placeholder="Info 1" name="campground[info]" value="<%= campground.info%>">
+            </div>
+            <div class="form-group">
+                <input class="form-control"type="text" placeholder="Info 2" name="campground[info1]" value="<%= campground.info1%>">
+            </div>
+            <div class="form-group">
+                <input class="form-control"type="text" placeholder="Info 3" name="campground[info2]" value="<%= campground.info2%>">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+            </div>
+        </form>
+        <a href="/campgrounds">Go Back</a>
+    </div>
+</div>
+
+<% include ../partials/footer%>
