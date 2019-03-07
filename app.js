@@ -15,9 +15,11 @@ var campgroundsRouter = require("./routes/campgrounds");
 var commentsRouter = require("./routes/comments");
 var app = express();
 var seedDB = require("./public/javascripts/seeds");
+var argv = require("argv");
 
 
-mongoose.connect("mongodb://localhost/yelp_camp");
+// mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect('mongodb://' + argv.be_ip + ':80/yelp_camp');
 //seedDB();
 
 // view engine setup
@@ -74,9 +76,12 @@ app.use(function (err, req, res, next) {
 	res.status(err.status || 500);
 	res.render("error");
 });
+//
+// app.listen(3000, "localhost", function () {
+// 	console.log("YelpCamp started!");
+// });
 
-app.listen(3000, "localhost", function () {
-	console.log("YelpCamp started!");
-});
+app.listen(8080, argv.fe_ip);
+console.log("App listening on port 8080");
 
 module.exports = app;
