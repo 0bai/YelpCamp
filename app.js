@@ -9,13 +9,14 @@ var LocalStrategy = require("passport-local");
 var User = require("./models/user");
 var methodOverride = require("method-override");
 var flash = require('connect-flash');
+var argv = require('optimist').argv;
 
 var indexRouter = require("./routes/index");
 var campgroundsRouter = require("./routes/campgrounds");
 var commentsRouter = require("./routes/comments");
 var app = express();
 var seedDB = require("./public/javascripts/seeds");
-var argv = require("argv");
+
 
 
 // mongoose.connect("mongodb://localhost/yelp_camp");
